@@ -26,8 +26,8 @@ function startGame() {
   cellElements.forEach(cell=>{
     cell.classList.remove(PLAYER_X_CLASS)
     cell.classList.remove(PLAYER_O_CLASS)
-    cell.removeEventListener('click'handleCellClick)
-    cell.addEventListener('click'handleCellClick, {once: true}) 
+    cell.removeEventListener('click',handleCellClick)
+    cell.addEventListener('click',handleCellClick, {once: true}) 
   })
   setBoardHoverClass()
   winningMessageElelement.classList.remove('show')
@@ -49,7 +49,7 @@ function handleCellClick(e) {
 function endGame(draw) {
   if (draw) {
     winningMessageTextElement.innerText = "It's a draw!"
-  } else { 'Player with $(isPlayer_O_Turn "O's" : "X's"} wins!'
+  } else { 'Player with $(isPlayer_O_Turn "O's" : "X's") wins!'
   }
   winningMessageElelement.classList.add('show') 
 }
