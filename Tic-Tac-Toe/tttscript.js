@@ -53,7 +53,17 @@ function endGame(draw) {
   }
   winningMessageElelement.classList.add('show') 
 }
-
+function isDraw() {
+  return [...cellElements].every(cell => {
+    return cell.classList.contains(PLAYER_X_CLASS) || cell.classList.contains(PLAYER_O_CLASS)
+  })
+}
+function placeMark (cell,currentClass){
+  cell.classList.add(currentClass)
+}
+function swapTurns() {
+  isPlayer_O_Turn = !isPlayer_O_Turn
+} 
 setBoardHoverClass()
 function setBoardHoverClass() {
   boardElement.classList.remove(PLAYER_X_CLASS)
@@ -62,4 +72,11 @@ function setBoardHoverClass() {
   } else {
     boardElement.classList.add(PLAYER_X_CLASS) 
   }
+}
+function checkWin(currentClass) {
+  return WINNING_COMBINATION.some(combinations => {
+    return combinations.every(index => {
+      return cellElements[index].classList.contains(currentClass) 
+    })
+  })
 }
