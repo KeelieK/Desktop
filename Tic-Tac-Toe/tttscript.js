@@ -46,6 +46,13 @@ function handleCellClick(e) {
     setBoardHoverClass()
   }
 }  
+function endGame(draw) {
+  if (draw) {
+    winningMessageTextElement.innerText = "It's a draw!"
+  } else { 'Player with $(isPlayer_O_Turn "O's" : "X's"} wins!'
+  }
+  winningMessageElelement.classList.add('show') 
+}
 
 setBoardHoverClass()
 function setBoardHoverClass() {
